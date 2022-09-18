@@ -555,6 +555,31 @@
 
 <Layout::Gap small />
 
+<Layout::Group {{waypoint "notmatch"}}>
+
+	<Layout::Text text-l text-f>
+		<h3><code>~</code></h3>
+		<p>Compare two values for inequality using fuzzy matching.</p>
+		<codes vertical>
+			<Code @name="docs-surrealql-operators-notmatch-input-1.sql">
+				SELECT * FROM "other text" !~ "test";
+			</Code>
+			<Code @name="docs-surrealql-operators-notmatch-result-1.txt">
+				true
+			</Code>
+			<Code @name="docs-surrealql-operators-notmatch-input-2.sql">
+				SELECT * FROM "test text" !~ "Test";
+			</Code>
+			<Code @name="docs-surrealql-operators-notmatch-result-2.txt">
+				false
+			</Code>
+		</codes>
+	</Layout::Text>
+
+</Layout::Group>
+
+<Layout::Gap small />
+
 <Layout::Group {{waypoint "lessthan"}}>
 
 	<Layout::Text text-l text-f>
