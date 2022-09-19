@@ -580,6 +580,31 @@
 
 <Layout::Gap small />
 
+<Layout::Group {{waypoint "anymatch"}}>
+
+	<Layout::Text text-l text-f>
+		<h3><code>?~</code></h3>
+		<p>Check whether any value in a set is equal to a value using fuzzy matching.</p>
+		<codes vertical>
+			<Code @name="docs-surrealql-operators-anymatch-input-1.sql">
+				SELECT * FROM ["true", "test", "text"] ?~ true;
+			</Code>
+			<Code @name="docs-surrealql-operators-anymatch-result-1.txt">
+				true
+			</Code>
+			<Code @name="docs-surrealql-operators-anymatch-input-2.sql">
+				SELECT * FROM [1, 2, 3] ?~ "2";
+			</Code>
+			<Code @name="docs-surrealql-operators-anymatch-result-2.txt">
+				true
+			</Code>
+		</codes>
+	</Layout::Text>
+
+</Layout::Group>
+
+<Layout::Gap small />
+
 <Layout::Group {{waypoint "lessthan"}}>
 
 	<Layout::Text text-l text-f>
