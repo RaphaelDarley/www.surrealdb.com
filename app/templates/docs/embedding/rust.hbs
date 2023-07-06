@@ -115,22 +115,6 @@
 			</tr>
 			<tr>
 				<td>
-					<a href="#invalidate">
-						<Ascua::Prism::Inline @language="rust" @code="db.invalidate()" />
-					</a>
-				</td>
-				<td>Invalidates the authentication for the current connection</td>
-			</tr>
-			<tr>
-				<td>
-					<a href="#authenticate">
-						<Ascua::Prism::Inline @language="rust" @code="db.authenticate(token)" />
-					</a>
-				</td>
-				<td>Authenticates the current connection with a JWT token</td>
-			</tr>
-			<tr>
-				<td>
 					<a href="#set">
 						<Ascua::Prism::Inline @language="rust" @code="db.set(key, val)" />
 					</a>
@@ -328,41 +312,6 @@
 		<Code @name="docs-integration-libraries-rust-use.rust">
 			db.use_ns("test").use_db("test").await?;
 		</Code>
-	</Layout::Text>
-
-</Layout::Group>
-
-<Layout::Gap small />
-
-<Layout::Group {{waypoint "authenticate" }}>
-
-	<Layout::Text text-l text-f>
-		<h3>
-			<Ascua::Prism::Inline @language="rust" @code="db.authenticate(token)" />
-		</h3>
-		<p>Authenticates the current connection with a JWT token.</p>
-		<Layout::Table>
-			<table>
-				<thead>
-					<tr>
-						<th w-40>Arguments</th>
-						<th w-60>Description</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr>
-						<td>
-							<code>token</code>
-							<l yellow r>Required</l>
-						</td>
-						<td>
-							The JWT authentication token.
-						</td>
-					</tr>
-				</tbody>
-			</table>
-		</Layout::Table>
-		<Code @name="docs/embedding/libraries/rust/authenticate.rust" />
 	</Layout::Text>
 
 </Layout::Group>
