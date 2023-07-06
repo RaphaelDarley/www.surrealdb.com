@@ -6,7 +6,7 @@
 </Crumb>
 
 <Layout::Text text-l text-f>
-    <h2><code>DELETE</code> statement</h2>
+	<h2><code>DELETE</code> statement</h2>
 	<p>The DELETE statement can be used to delete records from the database.</p>
 </Layout::Text>
 
@@ -26,14 +26,31 @@
 	<p>The following query shows example usage of this statement.</p>
 	<Code @name="docs/surrealql/statements/delete/simple.surql" />
 
-	<p>The delete statement supports conditional matching of records using a <code>WHERE</code> clause. If the expression in the <code>WHERE</code> clause evaluates to true, then the respective record will be deleted.</p>
+	<p>The delete statement supports conditional matching of records using a <code>WHERE</code> clause. If the
+		expression in the <code>WHERE</code> clause evaluates to true, then the respective record will be deleted.</p>
 	<Code @name="docs/surrealql/statements/delete/where.surql" />
 
-	<p>By default, the delete statement does not return any data, returning only an empty array if the statement succeeds completely. Specify a <code>RETURN</code> clause to change the value which is returned for each document that is deleted.</p>
+	<p>By default, the delete statement does not return any data, returning only an empty array if the statement
+		succeeds completely. Specify a <code>RETURN</code> clause to change the value which is returned for each
+		document that is deleted.</p>
 	<Code @name="docs/surrealql/statements/delete/return.surql" />
 
-	<p>When processing a large result set with many interconnected records, it is possible to use the <code>TIMEOUT</code> keywords to specify a timeout duration for the statement. If the statement continues beyond this duration, then the transaction will fail, no records will be deleted from the database, and the statement will return an error.</p>
+	<p>When processing a large result set with many interconnected records, it is possible to use the
+		<code>TIMEOUT</code> keywords to specify a timeout duration for the statement. If the statement continues beyond
+		this duration, then the transaction will fail, no records will be deleted from the database, and the statement
+		will return an error.
+	</p>
 	<Code @name="docs/surrealql/statements/delete/timeout.surql" />
+
+	<h4>Deleting Relations</h4>
+	<p>Relations can be removed with a <code>DELETE</code> statement.</p>
+	<Code @name="docs-statements-relate-example.surql">
+			RELATE person:tobie->bought->product:iphone;
+		</Code>
+	<p>This relation can be deleted by:</p>
+	<Code @name="docs-statements-relate-deletion.surql">
+			DELETE FROM person:tobie->bought WHERE out=product:iphone;
+		</Code>
 
 </Layout::Text>
 
