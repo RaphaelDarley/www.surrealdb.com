@@ -147,12 +147,25 @@
 	</p>
 	<Code @name="docs/surrealql/statements/select/parallel.surql" />
 
-	<h4>Deleting Relations</h4>
-	<p>Relations can be removed with a <code>DELETE</code> statement.</p>
-	<Code @name="docs-statements-relate-example.surql">
+	<h4> Deleting graph edges</h4>
+	 <p>You can also graph edges between two records in the database by using the <code>DELETE</code> statement. </p> <p>For example the graph edge below:</p>
+	<codes vertical>
+
+		<Code @name="docs-statements-relate-example.surql">
 			RELATE person:tobie->bought->product:iphone;
+	</Code>
+	<Code @name="docs-statements-delet-example.txt">
+			[
+				{
+					"id": "bought:ctwsll49k37a7rmqz9rr",
+					"in": "person:tobie",
+					"out": "product:iphone"
+				}
+			]
 		</Code>
-	<p>This relation can be deleted by:</p>
+	</codes>
+
+	<p>Can be deleted by:</p>
 	<Code @name="docs-statements-relate-deletion.surql">
 			DELETE FROM person:tobie->bought WHERE out=product:iphone;
 		</Code>
