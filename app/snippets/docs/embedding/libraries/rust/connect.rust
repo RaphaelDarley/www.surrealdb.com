@@ -1,4 +1,4 @@
-// Connect to a local endpoint
-DB.connect::<Ws>("127.0.0.1:8000").await?;
-// Connect to a remote endpoint
-DB.connect::<Ws>("cloud.surrealdb.com").await?;
+// Create an in memory database
+DB.connect::<Mem>(()).await?;
+// Connect to a RocksDB file
+DB.connect::<RocksDb>("path/to/database.db").await?;

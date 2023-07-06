@@ -16,12 +16,15 @@
 	<p>To contribute to this documentation,
 		<Link @link={{github}}>edit this file on GitHub</Link>.
 	</p>
+	<p>To contribute to the SDK code,
+		<Link @link="https://github.com/surrealdb/surrealdb">submit an Issue or Pull Request here</Link>.
+	</p>
 </Layout::Text>
 
 <Layout::Gap mini />
 
 <Layout::Text text-l text-f>
-	<h3>Install the crate</h3>
+	<h3>Install the SDK</h3>
 	<p>First, create a new project using <code>cargo new</code> and add the SurrealDB crate to your dependencies:</p>
 	<Code @name="docs-integration-libraries-rust-crate.bash">
 		cargo add surrealdb
@@ -47,7 +50,10 @@
 <Layout::Text text-l text-f>
 	<h3>Connect to SurrealDB</h3>
 	<p>Open <code>src/main.rs</code> and replace everything in there with the following code to try out some basic
-		operations using the SurrealDB SDK.</p>
+		operations using the SurrealDB SDK with an embedded database. Look at
+		<Link @link="docs.integration.sdks.rust">integrations to connect to a database.
+		</Link>
+	</p>
 	<Code @name="docs/embedding/libraries/rust/basic.rust" />
 
 	<p>Run your program from the command line with:</p>
@@ -106,22 +112,6 @@
 					</a>
 				</td>
 				<td>Switch to a specific namespace and database</td>
-			</tr>
-			<tr>
-				<td>
-					<a href="#signup">
-						<Ascua::Prism::Inline @language="rust" @code="db.signup(credentials)" />
-					</a>
-				</td>
-				<td>Signs up a user to a specific authentication scope</td>
-			</tr>
-			<tr>
-				<td>
-					<a href="#signin">
-						<Ascua::Prism::Inline @language="rust" @code="db.signin(credentials)" />
-					</a>
-				</td>
-				<td>Signs this connection in to a specific authentication scope</td>
 			</tr>
 			<tr>
 				<td>
@@ -338,90 +328,6 @@
 		<Code @name="docs-integration-libraries-rust-use.rust">
 			db.use_ns("test").use_db("test").await?;
 		</Code>
-	</Layout::Text>
-
-</Layout::Group>
-
-<Layout::Gap small />
-
-<Layout::Group {{waypoint "signup" }}>
-
-	<Layout::Text text-l text-f>
-		<h3>
-			<Ascua::Prism::Inline @language="rust" @code="db.signup(credentials)" />
-		</h3>
-		<p>Signs up to a specific authentication scope.</p>
-		<Layout::Table>
-			<table>
-				<thead>
-					<tr>
-						<th w-40>Arguments</th>
-						<th w-60>Description</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr>
-						<td>
-							<code>credentials</code>
-							<l yellow r>Required</l>
-						</td>
-						<td>
-							Variables used in a signup query.
-						</td>
-					</tr>
-				</tbody>
-			</table>
-		</Layout::Table>
-		<Code @name="docs/embedding/libraries/rust/signup.rust" />
-	</Layout::Text>
-
-</Layout::Group>
-
-<Layout::Gap small />
-
-<Layout::Group {{waypoint "signin" }}>
-
-	<Layout::Text text-l text-f>
-		<h3>
-			<Ascua::Prism::Inline @language="rust" @code="db.signin(credentials)" />
-		</h3>
-		<p>Signs in to a specific authentication scope.</p>
-		<Layout::Table>
-			<table>
-				<thead>
-					<tr>
-						<th w-40>Arguments</th>
-						<th w-60>Description</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr>
-						<td>
-							<code>credentials</code>
-							<l yellow r>Required</l>
-						</td>
-						<td>
-							Variables used in a signin query.
-						</td>
-					</tr>
-				</tbody>
-			</table>
-		</Layout::Table>
-		<Code @name="docs/embedding/libraries/rust/signin.rust" />
-	</Layout::Text>
-
-</Layout::Group>
-
-<Layout::Gap small />
-
-<Layout::Group {{waypoint "invalidate" }}>
-
-	<Layout::Text text-l text-f>
-		<h3>
-			<Ascua::Prism::Inline @language="rust" @code="db.invalidate()" />
-		</h3>
-		<p>Invalidates the authentication for the current connection.</p>
-		<Code @name="docs/embedding/libraries/rust/invalidate.rust" />
 	</Layout::Text>
 
 </Layout::Group>

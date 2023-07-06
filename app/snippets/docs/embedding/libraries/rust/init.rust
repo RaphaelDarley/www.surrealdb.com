@@ -1,9 +1,9 @@
-static DB: Surreal<Client> = Surreal::init();
+static DB: Surreal<Db> = Surreal::init();
 
 #[tokio::main]
 async fn main() -> surrealdb::Result<()> {
     // Connect to the database
-    DB.connect::<Ws>("cloud.surrealdb.com").await?;
+    DB.connect::<File>("database.db").await?;
     // Select a namespace + database
     DB.use_ns("test").use_db("test").await?;
     // Create or update a specific record
