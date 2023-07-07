@@ -2,3 +2,5 @@
 DB.connect::<Mem>(()).await?;
 // Connect to a RocksDB file
 DB.connect::<RocksDb>("path/to/database.db").await?;
+// Connect to a IndxDB file
+DB.connect::<IndxDb>("MyDatabase").await?;

@@ -2,4 +2,4 @@
 let db = Surreal::new::<Mem>(()).await?;
 
 // RocksDB backed database
-let db = Surreal::new::<RocksDb>("127.0.0.1:8000").await?;
+let db = Surreal::new::<RocksDb>("/path/to/database").await?;
