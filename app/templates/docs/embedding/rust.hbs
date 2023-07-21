@@ -11,7 +11,7 @@
 	<p>SurrealDB is designed to be run in many different ways, and environments. Due to the
 		<Link @link="docs.introduction.architecture">separation of the storage and API</Link> layers, SurrealDB can
 		be run in embedded mode, from within a number of different language environments. In Rust, SurrealDB can be run
-		as an in-memory database, or it can persist data using a file-based storage engine.
+		as an in-memory database, it can persist data using a file-based storage engine, or on a distributed cluster.
 	</p>
 	<p>To contribute to this documentation,
 		<Link @link={{github}}>edit this file on GitHub</Link>.
@@ -30,16 +30,7 @@
 		cargo add surrealdb
 	</Code>
 	<p>You will then need to enable the appropriate featues(for a full list see https://crates.io/crates/surrealdb)</p>
-	<Code @name="docs-integration-libraries-rust-crate-features.bash">
-		# For an in memory database
-		cargo add surrealdb --features kv-mem
-		
-		# For a RocksDB file
-		cargo add surrealdb --features kv-rocksdb
-				
-		# For an IndexedDB file
-		cargo add surrealdb --features kv-indxdb
-	</Code>
+	<Code @name="docs/embedding/libraries/rust/cargo-features.bash"></Code>
 	<p>You will need to add the following additional dependencies:</p>
 	<Code @name="docs-integration-libraries-rust-dependencies.bash">
 		cargo add serde --features derive
