@@ -6,10 +6,17 @@
 </Crumb>
 
 <Layout::Text text-l text-f>
-	<h2><Devicon @size="50" @type="nodejs" /> Node.js SDK for <img inline src="/static/img/text.svg" alt="SurrealDB" /></h2>
-	<p>The SurrealDB SDK for Node.js enables simple and advanced querying of a remote database from server-side code. All connections to SurrealDB are made over WebSockets, and automatically reconnect when the connection is terminated.</p>
-	<p>To contribute to this documentation, <Link @link={{github}}>edit this file on GitHub</Link>.</p>
-	<p>To contribute to the SDK code, <Link @link="https://github.com/surrealdb/surrealdb.js">submit an Issue or Pull Request here</Link>.</p>
+	<h2>
+		<Devicon @size="50" @type="nodejs" /> Node.js SDK for <img inline src="/static/img/text.svg" alt="SurrealDB" />
+	</h2>
+	<p>The SurrealDB SDK for Node.js enables simple and advanced querying of an embeded, remote or in-memory database
+		from server-side code. Connections are made through the native rust SDK.</p>
+	<p>To contribute to this documentation,
+		<Link @link={{github}}>edit this file on GitHub</Link>.
+	</p>
+	<p>To contribute to the SDK code,
+		<Link @link="https://github.com/surrealdb/surrealdb.node">submit an Issue or Pull Request here</Link>.
+	</p>
 </Layout::Text>
 
 <Layout::Gap mini />
@@ -18,12 +25,12 @@
 	<h3>Install the SDK</h3>
 	<p>First, install the SurrealDB SDK using <code>npm</code>:</p>
 	<Code @name="docs-integration-libraries-nodejs-install-npm.bash">
-		npm install --save surrealdb.js
+		npm install --save surrealdb.node
 	</Code>
 	<p>Alternatively, you can use install the SurrealDB SDK using <code>yarn</code>, <code>pnpm</code> or similar:</p>
 	<Code @name="docs-integration-libraries-nodejs-install-yarn.bash">
-		yarn add surrealdb.js
-		pnpm install surrealdb.js
+		yarn add surrealdb.node
+		pnpm install surrealdb.node
 	</Code>
 </Layout::Text>
 
@@ -223,7 +230,10 @@
 						<Ascua::Prism::Inline @language="ts" @code="async db.patch(thing, data)" />
 					</a>
 				</td>
-				<td>Applies <Link @link="https://jsonpatch.com">JSON Patch</Link> changes to all records in a table, or a specific record</td>
+				<td>Applies
+					<Link @link="https://jsonpatch.com">JSON Patch</Link> changes to all records in a table, or a
+					specific record
+				</td>
 			</tr>
 			<tr>
 				<td>
@@ -239,10 +249,12 @@
 
 <Layout::Gap small />
 
-<Layout::Group {{waypoint "connect"}}>
+<Layout::Group {{waypoint "connect" }}>
 
 	<Layout::Text text-l text-f>
-		<h3><Ascua::Prism::Inline @language="ts" @code="async db.connect(url, options)" /></h3>
+		<h3>
+			<Ascua::Prism::Inline @language="ts" @code="async db.connect(url, options)" />
+		</h3>
 		<p>Connects to a local or remote database endpoint.</p>
 		<Layout::Table>
 			<table>
@@ -319,10 +331,12 @@
 
 <Layout::Gap small />
 
-<Layout::Group {{waypoint "wait"}}>
+<Layout::Group {{waypoint "wait" }}>
 
 	<Layout::Text text-l text-f>
-		<h3><Ascua::Prism::Inline @language="ts" @code="async db.wait()" /></h3>
+		<h3>
+			<Ascua::Prism::Inline @language="ts" @code="async db.wait()" />
+		</h3>
 		<p>Waits for the connection to the database to succeed.</p>
 		<Code @name="docs-integration-libraries-nodejs-wait.js">
 			await db.wait();
@@ -333,10 +347,12 @@
 
 <Layout::Gap small />
 
-<Layout::Group {{waypoint "close"}}>
+<Layout::Group {{waypoint "close" }}>
 
 	<Layout::Text text-l text-f>
-		<h3><Ascua::Prism::Inline @language="ts" @code="async db.close()" /></h3>
+		<h3>
+			<Ascua::Prism::Inline @language="ts" @code="async db.close()" />
+		</h3>
 		<p>Closes the persistent connection to the database.</p>
 		<Code @name="docs-integration-libraries-nodejs-close.js">
 			await db.close();
@@ -347,11 +363,14 @@
 
 <Layout::Gap small />
 
-<Layout::Group {{waypoint "use"}}>
+<Layout::Group {{waypoint "use" }}>
 
 	<Layout::Text text-l text-f>
-		<h3><Ascua::Prism::Inline @language="ts" @code="db.use({ ns, db })" /></h3>
-		<p>Switch to a specific namespace and database. If only the <code>ns</code> or <code>db</code> property is specified, the current connection details will be used to fill the other property.</p>
+		<h3>
+			<Ascua::Prism::Inline @language="ts" @code="db.use({ ns, db })" />
+		</h3>
+		<p>Switch to a specific namespace and database. If only the <code>ns</code> or <code>db</code> property is
+			specified, the current connection details will be used to fill the other property.</p>
 		<Layout::Table>
 			<table>
 				<thead>
@@ -391,10 +410,12 @@
 
 <Layout::Gap small />
 
-<Layout::Group {{waypoint "info"}}>
+<Layout::Group {{waypoint "info" }}>
 
 	<Layout::Text text-l text-f>
-		<h3><Ascua::Prism::Inline @language="ts" @code="async db.info<T>()" /></h3>
+		<h3>
+			<Ascua::Prism::Inline @language="ts" @code="async db.info<T>()" />
+		</h3>
 		<p>This method returns the record of an authenticated scope user.</p>
 		<Code @name="docs-integration-libraries-javascript-info.js">
 			const user = await db.info();
@@ -405,10 +426,12 @@
 
 <Layout::Gap small />
 
-<Layout::Group {{waypoint "signup"}}>
+<Layout::Group {{waypoint "signup" }}>
 
 	<Layout::Text text-l text-f>
-		<h3><Ascua::Prism::Inline @language="ts" @code="async db.signup({ NS, DB, SC, [...] })" /></h3>
+		<h3>
+			<Ascua::Prism::Inline @language="ts" @code="async db.signup({ NS, DB, SC, [...] })" />
+		</h3>
 		<p>Signs up to a specific authentication scope.</p>
 		<Layout::Table>
 			<table>
@@ -466,10 +489,12 @@
 
 <Layout::Gap small />
 
-<Layout::Group {{waypoint "signin"}}>
+<Layout::Group {{waypoint "signin" }}>
 
 	<Layout::Text text-l text-f>
-		<h3><Ascua::Prism::Inline @language="ts" @code="async db.signin({ ... })" /></h3>
+		<h3>
+			<Ascua::Prism::Inline @language="ts" @code="async db.signin({ ... })" />
+		</h3>
 		<p>Signs in to a root, namespace, database or scope user.</p>
 		<Layout::Table>
 			<table>
@@ -566,10 +591,12 @@
 
 <Layout::Gap small />
 
-<Layout::Group {{waypoint "invalidate"}}>
+<Layout::Group {{waypoint "invalidate" }}>
 
 	<Layout::Text text-l text-f>
-		<h3><Ascua::Prism::Inline @language="ts" @code="async db.invalidate()" /></h3>
+		<h3>
+			<Ascua::Prism::Inline @language="ts" @code="async db.invalidate()" />
+		</h3>
 		<p>Invalidates the authentication for the current connection.</p>
 		<Code @name="docs-integration-libraries-nodejs-invalidate.js">
 			await db.invalidate();
@@ -580,10 +607,12 @@
 
 <Layout::Gap small />
 
-<Layout::Group {{waypoint "authenticate"}}>
+<Layout::Group {{waypoint "authenticate" }}>
 
 	<Layout::Text text-l text-f>
-		<h3><Ascua::Prism::Inline @language="ts" @code="async db.authenticate(token)" /></h3>
+		<h3>
+			<Ascua::Prism::Inline @language="ts" @code="async db.authenticate(token)" />
+		</h3>
 		<p>Authenticates the current connection with a JWT token.</p>
 		<Layout::Table>
 			<table>
@@ -615,10 +644,12 @@
 
 <Layout::Gap small />
 
-<Layout::Group {{waypoint "let"}}>
+<Layout::Group {{waypoint "let" }}>
 
 	<Layout::Text text-l text-f>
-		<h3><Ascua::Prism::Inline @language="ts" @code="async db.let(key, val)" /></h3>
+		<h3>
+			<Ascua::Prism::Inline @language="ts" @code="async db.let(key, val)" />
+		</h3>
 		<p>Assigns a value as a parameter for this connection.</p>
 		<Layout::Table>
 			<table>
@@ -669,10 +700,12 @@
 
 <Layout::Gap small />
 
-<Layout::Group {{waypoint "unset"}}>
+<Layout::Group {{waypoint "unset" }}>
 
 	<Layout::Text text-l text-f>
-		<h3><Ascua::Prism::Inline @language="ts" @code="async db.unset(key)" /></h3>
+		<h3>
+			<Ascua::Prism::Inline @language="ts" @code="async db.unset(key)" />
+		</h3>
 		<p>Removes a parameter for this connection.</p>
 		<Layout::Table>
 			<table>
@@ -705,10 +738,12 @@
 
 <Layout::Gap small />
 
-<Layout::Group {{waypoint "live"}}>
+<Layout::Group {{waypoint "live" }}>
 
 	<Layout::Text text-l text-f>
-		<h3><Ascua::Prism::Inline @language="ts" @code="async db.live<T>(table, callback, diff)" /></h3>
+		<h3>
+			<Ascua::Prism::Inline @language="ts" @code="async db.live<T>(table, callback, diff)" />
+		</h3>
 		<p>Initiates a live query.</p>
 		<Layout::Table>
 			<table>
@@ -743,7 +778,9 @@
 							<l faint r>Optional</l>
 						</td>
 						<td>
-							If set to true, live notifications will include an array of <Link @link="https://jsonpatch.com">JSON Patch</Link> objects, rather than the entire record for each notification.
+							If set to true, live notifications will include an array of
+							<Link @link="https://jsonpatch.com">JSON Patch</Link> objects, rather than the entire record
+							for each notification.
 						</td>
 					</tr>
 				</tbody>
@@ -769,10 +806,12 @@
 
 <Layout::Gap small />
 
-<Layout::Group {{waypoint "listenLive"}}>
+<Layout::Group {{waypoint "listenLive" }}>
 
 	<Layout::Text text-l text-f>
-		<h3><Ascua::Prism::Inline @language="ts" @code="async db.listenLive<T>(queryUuid, callback)" /></h3>
+		<h3>
+			<Ascua::Prism::Inline @language="ts" @code="async db.listenLive<T>(queryUuid, callback)" />
+		</h3>
 		<p>Registers a callback function for a running live query.</p>
 		<Layout::Table>
 			<table>
@@ -823,10 +862,12 @@
 
 <Layout::Gap small />
 
-<Layout::Group {{waypoint "kill"}}>
+<Layout::Group {{waypoint "kill" }}>
 
 	<Layout::Text text-l text-f>
-		<h3><Ascua::Prism::Inline @language="ts" @code="async db.kill(queryUuid)" /></h3>
+		<h3>
+			<Ascua::Prism::Inline @language="ts" @code="async db.kill(queryUuid)" />
+		</h3>
 		<p>Kills a running live query by it's UUID</p>
 		<Layout::Table>
 			<table>
@@ -858,10 +899,12 @@
 
 <Layout::Gap small />
 
-<Layout::Group {{waypoint "query"}}>
+<Layout::Group {{waypoint "query" }}>
 
 	<Layout::Text text-l text-f>
-		<h3><Ascua::Prism::Inline @language="ts" @code="async db.query<T>(query, vars)" /></h3>
+		<h3>
+			<Ascua::Prism::Inline @language="ts" @code="async db.query<T>(query, vars)" />
+		</h3>
 		<p>Runs a set of SurrealQL statements against the database.</p>
 		<Layout::Table>
 			<table>
@@ -900,10 +943,12 @@
 
 <Layout::Gap small />
 
-<Layout::Group {{waypoint "select"}}>
+<Layout::Group {{waypoint "select" }}>
 
 	<Layout::Text text-l text-f>
-		<h3><Ascua::Prism::Inline @language="ts" @code="async db.select<T>(thing)" /></h3>
+		<h3>
+			<Ascua::Prism::Inline @language="ts" @code="async db.select<T>(thing)" />
+		</h3>
 		<p>Selects all records in a table, or a specific record, from the database.</p>
 		<Layout::Table>
 			<table>
@@ -937,10 +982,12 @@
 
 <Layout::Gap small />
 
-<Layout::Group {{waypoint "create"}}>
+<Layout::Group {{waypoint "create" }}>
 
 	<Layout::Text text-l text-f>
-		<h3><Ascua::Prism::Inline @language="ts" @code="async db.create<T, U>(thing, data)" /></h3>
+		<h3>
+			<Ascua::Prism::Inline @language="ts" @code="async db.create<T, U>(thing, data)" />
+		</h3>
 		<p>Creates a record in the database.</p>
 		<Layout::Table>
 			<table>
@@ -983,10 +1030,12 @@
 
 <Layout::Gap small />
 
-<Layout::Group {{waypoint "insert"}}>
+<Layout::Group {{waypoint "insert" }}>
 
 	<Layout::Text text-l text-f>
-		<h3><Ascua::Prism::Inline @language="ts" @code="async db.insert<T, U>(thing, data)" /></h3>
+		<h3>
+			<Ascua::Prism::Inline @language="ts" @code="async db.insert<T, U>(thing, data)" />
+		</h3>
 		<p>Insers one or multiple records in the database.</p>
 		<Layout::Table>
 			<table>
@@ -1029,12 +1078,15 @@
 
 <Layout::Gap small />
 
-<Layout::Group {{waypoint "update"}}>
+<Layout::Group {{waypoint "update" }}>
 
 	<Layout::Text text-l text-f>
-		<h3><Ascua::Prism::Inline @language="ts" @code="async db.update<T, U>(thing, data)" /></h3>
+		<h3>
+			<Ascua::Prism::Inline @language="ts" @code="async db.update<T, U>(thing, data)" />
+		</h3>
 		<p>Updates all records in a table, or a specific record, in the database.</p>
-		<blockquote yellow text="Note">This function replaces the current document / record data with the specified data.</blockquote>
+		<blockquote yellow text="Note">This function replaces the current document / record data with the specified
+			data.</blockquote>
 		<Layout::Table>
 			<table>
 				<thead>
@@ -1076,12 +1128,15 @@
 
 <Layout::Gap small />
 
-<Layout::Group {{waypoint "merge"}}>
+<Layout::Group {{waypoint "merge" }}>
 
 	<Layout::Text text-l text-f>
-		<h3><Ascua::Prism::Inline @language="ts" @code="async db.merge<T, U>(thing, data)" /></h3>
+		<h3>
+			<Ascua::Prism::Inline @language="ts" @code="async db.merge<T, U>(thing, data)" />
+		</h3>
 		<p>Modifies all records in a table, or a specific record, in the database.</p>
-		<blockquote yellow text="Note">This function merges the current document / record data with the specified data.</blockquote>
+		<blockquote yellow text="Note">This function merges the current document / record data with the specified data.
+		</blockquote>
 		<Layout::Table>
 			<table>
 				<thead>
@@ -1123,12 +1178,19 @@
 
 <Layout::Gap small />
 
-<Layout::Group {{waypoint "patch"}}>
+<Layout::Group {{waypoint "patch" }}>
 
 	<Layout::Text text-l text-f>
-		<h3><Ascua::Prism::Inline @language="ts" @code="async db.patch(thing, data)" /></h3>
-		<p>Applies <Link @link="https://jsonpatch.com">JSON Patch</Link> changes to all records, or a specific record, in the database.</p>
-		<blockquote yellow text="Note">This function patches the current document / record data with the specified <Link @link="https://jsonpatch.com">JSON Patch</Link> data.</blockquote>
+		<h3>
+			<Ascua::Prism::Inline @language="ts" @code="async db.patch(thing, data)" />
+		</h3>
+		<p>Applies
+			<Link @link="https://jsonpatch.com">JSON Patch</Link> changes to all records, or a specific record, in the
+			database.
+		</p>
+		<blockquote yellow text="Note">This function patches the current document / record data with the specified
+			<Link @link="https://jsonpatch.com">JSON Patch</Link> data.
+		</blockquote>
 		<Layout::Table>
 			<table>
 				<thead>
@@ -1153,7 +1215,8 @@
 							<l faint r>Optional</l>
 						</td>
 						<td>
-							The <Link @link="https://jsonpatch.com">JSON Patch</Link> data with which to patch the records.
+							The
+							<Link @link="https://jsonpatch.com">JSON Patch</Link> data with which to patch the records.
 						</td>
 					</tr>
 				</tbody>
@@ -1170,10 +1233,12 @@
 
 <Layout::Gap small />
 
-<Layout::Group {{waypoint "delete"}}>
+<Layout::Group {{waypoint "delete" }}>
 
 	<Layout::Text text-l text-f>
-		<h3><Ascua::Prism::Inline @language="ts" @code="async db.delete<T>(thing)" /></h3>
+		<h3>
+			<Ascua::Prism::Inline @language="ts" @code="async db.delete<T>(thing)" />
+		</h3>
 		<p>Deletes all records in a table, or a specific record, from the database.</p>
 		<Layout::Table>
 			<table>
